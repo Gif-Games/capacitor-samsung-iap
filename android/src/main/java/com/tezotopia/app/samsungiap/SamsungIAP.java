@@ -8,4 +8,9 @@ public class SamsungIAP {
         Log.i("Echo", value);
         return value;
     }
+
+    public int add(int x, int y) {
+        int z = x + y;
+        return z;
+    }
 }

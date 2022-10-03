@@ -7,4 +7,9 @@ export class SamsungIAPWeb extends WebPlugin implements SamsungIAPPlugin {
     console.log('ECHO', options);
     return options;
   }
+
+  async add(options: { x: number; y: number }): Promise<{ value: number }> {
+    console.log('ADD', options);
+    return { value: options.x * options.y };
+  }
 }

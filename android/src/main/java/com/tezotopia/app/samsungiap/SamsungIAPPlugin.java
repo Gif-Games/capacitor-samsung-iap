@@ -19,4 +19,14 @@ public class SamsungIAPPlugin extends Plugin {
         ret.put("value", implementation.echo(value));
         call.resolve(ret);
     }
+
+    @PluginMethod
+    public void add(PluginCall call) {
+        int x = call.getInt("x");
+        int y = call.getInt("y");
+
+        JSObject ret = new JSObject();
+        ret.put("value", implementation.add(x, y));
+        call.resolve(ret);
+    }
 }

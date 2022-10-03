@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RohitKaushal7/samsung-iap.git"
+    "url": "git+https://github.com/Gif-Games/samsung-iap.git"
   },
   "bugs": {
-    "url": "https://github.com/RohitKaushal7/samsung-iap/issues"
+    "url": "https://github.com/Gif-Games/samsung-iap/issues"
   },
   "keywords": [
     "capacitor",
