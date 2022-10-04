@@ -22,7 +22,7 @@ export interface SamsungIAPPlugin {
   /**
    * initiates the purchase and payment transaction of the specified in-app item and can notify the end user if the purchase succeeded or failed.
    */
-  startPayment(options: StartPaymentOptions): Promise<any>;
+  startPayment(options: StartPaymentOptions): Promise<PurchaseVo>;
 
   /**
    * reports one or more purchased consumable items as consumed, which makes the items available for another purchase.
@@ -30,6 +30,7 @@ export interface SamsungIAPPlugin {
   consumePurchasedItems(options: ConsumePurchasedItemsOptions): Promise<any>;
 }
 
+// OPTIONS TYPES
 export interface SetOperationModeOptions {
   /**
    * - `production` : startPayment() requests are processed as specified, financial transactions do occur for successful requests, and actual results are returned (successful or failed).
@@ -95,4 +96,25 @@ export interface ConsumePurchasedItemsOptions {
    * (Required) One or more unique identifier values of the purchase and payment transactions of consumable in-app items that are to be reported as consumed
    */
   purchaseIds: string[];
+}
+
+// RETURN TYPES
+export interface PurchaseVo {
+  itemId: string;
+  paymentId: string;
+  orderId: string;
+  packageName: string;
+  itemName: string;
+  itemDesc: string;
+  purchaseDate: Date;
+  paymentAmount: string;
+  status: string;
+  paymentMethod: string;
+  mode: string;
+  consumeYN: string;
+  consumeDate: Date;
+  consumeDeviceModel: string;
+  passThroughParam: string;
+  currencyCode: string;
+  currencyUnit: string;
 }
