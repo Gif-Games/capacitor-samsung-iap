@@ -1,15 +1,29 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { WebPlugin } from '@capacitor/core';
 
-import type { SamsungIAPPlugin } from './definitions';
+import type {
+  ConsumePurchasedItemsOptions,
+  GetOwnedListOptions,
+  GetProductsDetailsOptions,
+  SamsungIAPPlugin,
+  SetOperationModeOptions,
+  StartPaymentOptions,
+} from './definitions';
 
 export class SamsungIAPWeb extends WebPlugin implements SamsungIAPPlugin {
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
+  setOperationMode(_options: SetOperationModeOptions): Promise<void> {
+    throw new Error('Method not implemented.');
   }
-
-  async add(options: { x: number; y: number }): Promise<{ value: number }> {
-    console.log('ADD', options);
-    return { value: options.x * options.y };
+  getOwnedList(_options: GetOwnedListOptions): Promise<any> {
+    throw new Error('Method not implemented.');
+  }
+  getProductsDetails(_options: GetProductsDetailsOptions): Promise<any> {
+    throw new Error('Method not implemented.');
+  }
+  startPayment(_options: StartPaymentOptions): Promise<any> {
+    throw new Error('Method not implemented.');
+  }
+  consumePurchasedItems(_options: ConsumePurchasedItemsOptions): Promise<any> {
+    throw new Error('Method not implemented.');
   }
 }

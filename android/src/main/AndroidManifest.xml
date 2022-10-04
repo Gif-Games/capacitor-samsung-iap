@@ -1,3 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tezotopia.app.samsungiap">
+    package="games.gif.samsungiap">
+    <uses-permission android:name="com.samsung.android.iap.permission.BILLING"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
