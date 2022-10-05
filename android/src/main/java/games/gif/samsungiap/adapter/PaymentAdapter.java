@@ -1,6 +1,7 @@
 package games.gif.samsungiap.adapter;
 
 import com.getcapacitor.JSObject;
+import com.getcapacitor.Logger;
 import com.getcapacitor.PluginCall;
 import com.samsung.android.sdk.iap.lib.helper.IapHelper;
 import com.samsung.android.sdk.iap.lib.listener.OnPaymentListener;
@@ -10,7 +11,7 @@ import com.samsung.android.sdk.iap.lib.vo.PurchaseVo;
 import org.json.JSONException;
 
 public class PaymentAdapter implements OnPaymentListener {
-
+    private final String TAG = PaymentAdapter.class.getSimpleName();
     private PluginCall call = null;
     private String passThroughParam = null;
 
@@ -40,6 +41,10 @@ public class PaymentAdapter implements OnPaymentListener {
                 } else {
                     call.reject("Something went Wrong.");
                 }
+            } else {
+                String errorMsg = _errorVo.getErrorString();
+                Logger.error(TAG, errorMsg, null);
+                call.reject(errorMsg);
             }
         }
     }

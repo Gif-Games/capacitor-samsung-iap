@@ -21,7 +21,7 @@ public class SamsungIAPPlugin extends Plugin {
 
     @PluginMethod
     public void setOperationMode(PluginCall call) {
-        SamsungIAP.OperationModeType mode = SamsungIAP.OperationModeType.valueOf(call.getString("mode"));
+        String mode = call.getString("mode");
         iap.setOperationMode(mode);
         call.resolve();
     }

@@ -30,7 +30,7 @@ export interface SamsungIAPPlugin {
   consumePurchasedItems(options: ConsumePurchasedItemsOptions): Promise<any>;
 }
 
-// OPTIONS TYPES
+// ### OPTIONS TYPES
 export interface SetOperationModeOptions {
   /**
    * - `production` : startPayment() requests are processed as specified, financial transactions do occur for successful requests, and actual results are returned (successful or failed).
@@ -98,7 +98,8 @@ export interface ConsumePurchasedItemsOptions {
   purchaseIds: string[];
 }
 
-// RETURN TYPES
+// ### RETURN TYPES
+
 export interface PurchaseVo {
   itemId: string;
   paymentId: string;
@@ -106,13 +107,13 @@ export interface PurchaseVo {
   packageName: string;
   itemName: string;
   itemDesc: string;
-  purchaseDate: Date;
+  purchaseDate: string;
   paymentAmount: string;
   status: string;
   paymentMethod: string;
   mode: string;
   consumeYN: string;
-  consumeDate: Date;
+  consumeDate: string;
   consumeDeviceModel: string;
   passThroughParam: string;
   currencyCode: string;

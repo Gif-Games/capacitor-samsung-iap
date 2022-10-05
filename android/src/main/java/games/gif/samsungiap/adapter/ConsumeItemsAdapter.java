@@ -40,7 +40,7 @@ public class ConsumeItemsAdapter implements OnConsumePurchasedItemsListener {
                     }
                 }
             } else {
-                String errorMsg = "onGetOwnedProducts > Error " + _errorVo.getErrorString();
+                String errorMsg =  _errorVo.getErrorString();
                 Logger.error(TAG, errorMsg, null);
                 call.reject(errorMsg);
             }

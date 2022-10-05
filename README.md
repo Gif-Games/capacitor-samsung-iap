@@ -9,6 +9,15 @@ npm install samsung-iap
 npx cap sync
 ```
 
+### Include sub dependencies
+
+Add this to your app's `settings.gradle`
+
+```gradle
+include ':IAP6Helper'
+project(':IAP6Helper').projectDir = new File('../node_modules/samsung-iap/android/IAP6Helper')
+```
+
 ## API
 
 <docgen-index>
@@ -80,7 +89,7 @@ returns information for one, more, or all in-app items registered to the app.
 ### startPayment(...)
 
 ```typescript
-startPayment(options: StartPaymentOptions) => Promise<any>
+startPayment(options: StartPaymentOptions) => Promise<PurchaseVo>
 ```
 
 initiates the purchase and payment transaction of the specified in-app item and can notify the end user if the purchase succeeded or failed.
@@ -89,7 +98,7 @@ initiates the purchase and payment transaction of the specified in-app item and 
 | ------------- | ------------------------------------------------------------------- |
 | **`options`** | <code><a href="#startpaymentoptions">StartPaymentOptions</a></code> |
 
-**Returns:** <code>Promise&lt;any&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#purchasevo">PurchaseVo</a>&gt;</code>
 
 --------------------
 
@@ -133,6 +142,29 @@ reports one or more purchased consumable items as consumed, which makes the item
 | Prop             | Type                  | Description                                                                                                                                                                                                                                                                            |
 | ---------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`productIds`** | <code>string[]</code> | (Required) One or more in-app item IDs specified by either: Empty array [] that designates all in-app items or One or more unique in-app item ID values You can get the IDs from Seller Portal (Applications page &gt; Click status of the app &gt; In App Purchase tab &gt; Item ID). |
+
+
+#### PurchaseVo
+
+| Prop                     | Type                |
+| ------------------------ | ------------------- |
+| **`itemId`**             | <code>string</code> |
+| **`paymentId`**          | <code>string</code> |
+| **`orderId`**            | <code>string</code> |
+| **`packageName`**        | <code>string</code> |
+| **`itemName`**           | <code>string</code> |
+| **`itemDesc`**           | <code>string</code> |
+| **`purchaseDate`**       | <code>string</code> |
+| **`paymentAmount`**      | <code>string</code> |
+| **`status`**             | <code>string</code> |
+| **`paymentMethod`**      | <code>string</code> |
+| **`mode`**               | <code>string</code> |
+| **`consumeYN`**          | <code>string</code> |
+| **`consumeDate`**        | <code>string</code> |
+| **`consumeDeviceModel`** | <code>string</code> |
+| **`passThroughParam`**   | <code>string</code> |
+| **`currencyCode`**       | <code>string</code> |
+| **`currencyUnit`**       | <code>string</code> |
 
 
 #### StartPaymentOptions

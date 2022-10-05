@@ -21,20 +21,20 @@ public class SamsungIAP {
         iapHelper = IapHelper.getInstance(context);
     }
 
-    public void setOperationMode(OperationModeType mode) {
+    public void setOperationMode(String mode) {
         switch (mode) {
 
-            case PRODUCTION:
+            case "production":
                 iapHelper.setOperationMode(OperationMode.OPERATION_MODE_PRODUCTION);
                 break;
-            case TEST:
+            case "test":
                 iapHelper.setOperationMode(OperationMode.OPERATION_MODE_TEST);
                 break;
-            case TEST_FAIL:
+            case "test_fail":
                 iapHelper.setOperationMode(OperationMode.OPERATION_MODE_TEST_FAILURE);
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + mode);
+                iapHelper.setOperationMode(OperationMode.OPERATION_MODE_TEST_FAILURE);
         }
     }
 
@@ -50,23 +50,10 @@ public class SamsungIAP {
     public void startPayment(PluginCall call, String itemId, String passThroughParam) {
         iapHelper.startPayment(itemId, passThroughParam, new PaymentAdapter(call, passThroughParam));
     }
+
     public void consumePurchasedItems(PluginCall call, List<String> _purchaseIds) {
         String purchaseIds = String.join(",", _purchaseIds);
         iapHelper.consumePurchasedItems(purchaseIds, new ConsumeItemsAdapter(call));
-    }
-
-    public enum OperationModeType {
-        PRODUCTION("production"), TEST("test"), TEST_FAIL("test_fail");
-
-        final private String value;
-
-        OperationModeType(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
     }
 
 }
