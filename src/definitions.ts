@@ -12,12 +12,12 @@ export interface SamsungIAPPlugin {
    * - Non-consumable items
    * - Subscription items currently in a free trial or an active subscription period (this includes canceled subscription items until their active subscription period has ended)
    */
-  getOwnedList(options: GetOwnedListOptions): Promise<any>;
+  getOwnedList(options: GetOwnedListOptions): Promise<OwnedList>;
 
   /**
    * returns information for one, more, or all in-app items registered to the app.
    */
-  getProductsDetails(options: GetProductsDetailsOptions): Promise<any>;
+  getProductsDetails(options: GetProductsDetailsOptions): Promise<ProductList>;
 
   /**
    * initiates the purchase and payment transaction of the specified in-app item and can notify the end user if the purchase succeeded or failed.
@@ -27,7 +27,9 @@ export interface SamsungIAPPlugin {
   /**
    * reports one or more purchased consumable items as consumed, which makes the items available for another purchase.
    */
-  consumePurchasedItems(options: ConsumePurchasedItemsOptions): Promise<any>;
+  consumePurchasedItems(
+    options: ConsumePurchasedItemsOptions,
+  ): Promise<ConsumeList>;
 }
 
 // ### OPTIONS TYPES
@@ -100,22 +102,60 @@ export interface ConsumePurchasedItemsOptions {
 
 // ### RETURN TYPES
 
+export interface OwnedProductVo {
+  mPaymentId: string;
+  mPurchaseId: string;
+  mPurchaseDate: string;
+  mPassThroughParam: string;
+  mSubscriptionEndDate: string;
+}
+
+export interface OwnedList {
+  data: OwnedProductVo[];
+}
+
 export interface PurchaseVo {
-  itemId: string;
-  paymentId: string;
-  orderId: string;
-  packageName: string;
-  itemName: string;
-  itemDesc: string;
-  purchaseDate: string;
-  paymentAmount: string;
-  status: string;
-  paymentMethod: string;
-  mode: string;
-  consumeYN: string;
-  consumeDate: string;
-  consumeDeviceModel: string;
-  passThroughParam: string;
-  currencyCode: string;
-  currencyUnit: string;
+  mPaymentId: string;
+  mPurchaseId: string;
+  mPurchaseDate: string;
+  mVerifyUrl: string;
+  mPassThroughParam: string;
+  mItemImageUrl: string;
+  mItemDownloadUrl: string;
+  mReserved1: string;
+  mReserved2: string;
+  mOrderId: string;
+  mUdpSignature: string;
+}
+
+export interface ProductVo {
+  mSubscriptionDurationUnit: string;
+  mSubscriptionDurationMultiplier: string;
+  mTieredPrice: string;
+  mTieredPriceString: string;
+  mTieredSubscriptionYN: string;
+  mTieredSubscriptionDurationUnit: string;
+  mTieredSubscriptionDurationMultiplier: string;
+  mTieredSubscriptionCount: string;
+  mShowStartDate: string;
+  mShowEndDate: string;
+  mItemImageUrl: string;
+  mItemDownloadUrl: string;
+  mReserved1: string;
+  mReserved2: string;
+  mFreeTrialPeriod: string;
+}
+
+export interface ProductList {
+  data: ProductVo[];
+}
+
+export interface ConsumeVo {
+  mPurchaseId: string;
+  mStatusString: string;
+  mStatusCode: number;
+}
+
+export interface ConsumeList {
+  data: ConsumeVo[];
 }
