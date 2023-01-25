@@ -102,7 +102,37 @@ export interface ConsumePurchasedItemsOptions {
 
 // ### RETURN TYPES
 
-export interface OwnedProductVo {
+interface BaseVo {
+  mItemId: string;
+  mItemName: string;
+  mItemPrice: number;
+  mItemPricestring: string;
+  mCurrencyUnit: string;
+  mCurrencyCode: string;
+  mItemDesc: string;
+  mType: string;
+  mIsConsumable: boolean;
+  mConsumableYN: boolean;
+}
+export interface ProductVo extends BaseVo {
+  mItemImageUrl: string;
+  mItemDownloadUrl: string;
+  mReserved1: string;
+  mReserved2: string;
+  mFreeTrialPeriod: string;
+  mSubscriptionDurationUnit: string;
+  mSubscriptionDurationMultiplier: string;
+  mTieredSubscriptionYN: string;
+  mTieredPrice: string;
+  mTieredPriceString: string;
+  mTieredSubscriptionCount: string;
+  mTieredSubscriptionDurationMultiplier: string;
+  mTieredSubscriptionDurationUnit: string;
+  mShowStartDate: number;
+  mShowEndDate: number;
+}
+
+export interface OwnedProductVo extends BaseVo {
   mPaymentId: string;
   mPurchaseId: string;
   mPurchaseDate: string;
@@ -114,7 +144,7 @@ export interface OwnedList {
   data: OwnedProductVo[];
 }
 
-export interface PurchaseVo {
+export interface PurchaseVo extends BaseVo {
   mPaymentId: string;
   mPurchaseId: string;
   mPurchaseDate: string;
@@ -126,24 +156,6 @@ export interface PurchaseVo {
   mReserved2: string;
   mOrderId: string;
   mUdpSignature: string;
-}
-
-export interface ProductVo {
-  mSubscriptionDurationUnit: string;
-  mSubscriptionDurationMultiplier: string;
-  mTieredPrice: string;
-  mTieredPriceString: string;
-  mTieredSubscriptionYN: string;
-  mTieredSubscriptionDurationUnit: string;
-  mTieredSubscriptionDurationMultiplier: string;
-  mTieredSubscriptionCount: string;
-  mShowStartDate: string;
-  mShowEndDate: string;
-  mItemImageUrl: string;
-  mItemDownloadUrl: string;
-  mReserved1: string;
-  mReserved2: string;
-  mFreeTrialPeriod: string;
 }
 
 export interface ProductList {
@@ -158,4 +170,11 @@ export interface ConsumeVo {
 
 export interface ConsumeList {
   data: ConsumeVo[];
+}
+
+export interface ErrorVo {
+  mErrorCode: 1;
+  mErrorString: string;
+  mErrorDetailsString: string;
+  mExtraString: string;
 }
