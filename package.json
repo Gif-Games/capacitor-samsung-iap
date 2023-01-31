@@ -1,11 +1,12 @@
 {
-  "name": "samsung-iap",
-  "version": "0.0.1",
+  "name": "@gif-games/capacitor-samsung-iap",
+  "version": "1.0.0",
   "description": "Capacitor plugin for Samsung IAP Android SDK",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
+  "license": "MIT",
   "files": [
     "android/src/main/",
     "android/build.gradle",
@@ -13,19 +14,37 @@
     "ios/Plugin/",
     "SamsungIap.podspec"
   ],
-  "author": "",
+  "author": {
+    "name": "Gif.Games",
+    "email": "dev@gif.games",
+    "url": "https://gif.games/"
+  },
+  "contributors": [
+    {
+      "name": "Rohit Kaushal",
+      "email": "rohitkk252550@gmail.com",
+      "url": "https://rohitkaushal.is-a.dev"
+    },
+    {
+      "name": "Snehil",
+      "email": "me@snehil.dev",
+      "url": "https://snehil.dev"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Gif-Games/samsung-iap.git"
+    "url": "git+https://github.com/Gif-Games/capacitor-samsung-iap.git"
   },
   "bugs": {
-    "url": "https://github.com/Gif-Games/samsung-iap/issues"
+    "url": "https://github.com/Gif-Games/capacitor-samsung-iap/issues"
   },
   "keywords": [
     "capacitor",
     "plugin",
-    "native"
+    "native",
+    "samsung",
+    "iap"
   ],
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",

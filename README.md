@@ -1,11 +1,11 @@
-# samsung-iap
+# @gif-games/capacitor-samsung-iap
 
 Capacitor plugin for Samsung IAP Android SDK
 
 ## Install
 
 ```bash
-npm install samsung-iap
+npm install @gif-games/capacitor-samsung-iap
 npx cap sync
 ```
 
@@ -15,7 +15,7 @@ Add this to your app's `settings.gradle`
 
 ```gradle
 include ':IAP6Helper'
-project(':IAP6Helper').projectDir = new File('../node_modules/samsung-iap/android/IAP6Helper')
+project(':IAP6Helper').projectDir = new File('../node_modules/@gif-games/capacitor-samsung-iap/android/IAP6Helper')
 ```
 
 ## API
