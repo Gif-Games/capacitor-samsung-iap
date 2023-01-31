@@ -1,15 +1,15 @@
 {
   "name": "@gif-games/capacitor-samsung-iap",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Capacitor plugin for Samsung IAP Android SDK",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
-  "license": "MIT",
   "files": [
     "android/src/main/",
     "android/build.gradle",
+    "android/IAP6Helper/",
     "dist/",
     "ios/Plugin/",
     "SamsungIap.podspec"
