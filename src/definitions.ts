@@ -106,13 +106,13 @@ interface BaseVo {
   mItemId: string;
   mItemName: string;
   mItemPrice: number;
-  mItemPricestring: string;
+  mItemPriceString: string;
   mCurrencyUnit: string;
   mCurrencyCode: string;
   mItemDesc: string;
-  mType: string;
+  mType: 'item' | 'subscription';
   mIsConsumable: boolean;
-  mConsumableYN: boolean;
+  mConsumableYN: 'Y' | 'N';
 }
 export interface ProductVo extends BaseVo {
   mItemImageUrl: string;
